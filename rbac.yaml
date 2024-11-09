@@ -1,3 +1,4 @@
+
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
@@ -21,9 +22,7 @@ subjects:
 - apiGroup: rbac.authorization.k8s.io
   kind: User
   name: suresh
-
 ---
-
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
@@ -33,19 +32,18 @@ rules:
 - apiGroups: ["*"] # "" indicates the core API group
   resources: ["*"]
   verbs: ["*"]
-
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  namespace: expense
   name: expense-admin
+  namespace: expense
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
   name: expense-admin
 subjects:
-- apigroup: rbac.authorization.k8s.io 
+- apiGroup: rbac.authorization.k8s.io
   kind: User
   name: ramesh
 ---
@@ -71,5 +69,3 @@ roleRef:
   kind: ClusterRole
   name: expense
   apiGroup: rbac.authorization.k8s.io
-
-
